@@ -1,0 +1,5 @@
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("\u042F\u043D\u0430");
+    }
+}
