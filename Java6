@@ -1,0 +1,32 @@
+public class DecodeDemo {
+    public static void main(String[] args) {
+
+        // Integer.decode()
+        Integer dec1 = Integer.decode("123");      // десятичное
+        Integer hex1 = Integer.decode("0x1A");     // шестнадцатеричное (0x)
+        Integer hex2 = Integer.decode("#1A");      // шестнадцатеричное (#)
+        Integer oct1 = Integer.decode("017");      // восьмеричное (0 в начале)
+
+        System.out.println("Integer.decode examples:");
+        System.out.println("decode(\"123\")  = " + dec1);
+        System.out.println("decode(\"0x1A\") = " + hex1);
+        System.out.println("decode(\"#1A\")  = " + hex2);
+        System.out.println("decode(\"017\")  = " + oct1);
+
+        // Byte.decode()
+        Byte b1 = Byte.decode("100");
+        Byte b2 = Byte.decode("0x1F");
+
+        System.out.println("\nByte.decode examples:");
+        System.out.println("Byte.decode(\"100\")  = " + b1);
+        System.out.println("Byte.decode(\"0x1F\") = " + b2);
+
+        // Short.decode()
+        Short s1 = Short.decode("200");
+        Short s2 = Short.decode("0x2A");
+
+        System.out.println("\nShort.decode examples:");
+        System.out.println("Short.decode(\"200\")  = " + s1);
+        System.out.println("Short.decode(\"0x2A\") = " + s2);
+    }
+}
