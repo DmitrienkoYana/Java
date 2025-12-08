@@ -1,0 +1,25 @@
+/**
+ * Класс Demo показывает пример использования утилиты javadoc.
+ */
+public class Demo {
+
+    /**
+     * Возвращает сумму двух чисел.
+     *
+     * @param a первое число
+     * @param b второе число
+     * @return сумма чисел a и b
+     */
+    public static int sum(int a, int b) {
+        return a + b;
+    }
+
+    /**
+     * Точка входа в программу.
+     *
+     * @param args аргументы командной строки
+     */
+    public static void main(String[] args) {
+        System.out.println("Сумма: " + sum(3, 4));
+    }
+}
