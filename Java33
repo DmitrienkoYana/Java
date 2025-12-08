@@ -1,0 +1,68 @@
+public class TypeArithmeticDemo {
+    public static void main(String[] args) {
+
+        // ----- Пример 1: int + double -----
+        int a = 5;
+        double b = 2.5;
+        double result1 = a + b;
+        System.out.println("1) int + double = " + result1);
+        // int расширяется до double → 5.0 + 2.5 = 7.5
+
+
+        // ----- Пример 2: byte + int + long -----
+        byte x = 10;
+        int y = 20;
+        long z = 30;
+        long result2 = x + y + z;
+        System.out.println("2) byte + int + long = " + result2);
+        // byte → int; int + int = int; затем int → long
+
+
+        // ----- Пример 3: char + int -----
+        char c = 'A'; // A = 65
+        int n = 3;
+        int result3 = c + n;
+        System.out.println("3) char + int = " + result3);
+        // char преобразуется в его числовой код: 65 + 3 = 68
+
+
+        // ----- Пример 4: short + short -----
+        short s1 = 3;
+        short s2 = 4;
+        int result4 = s1 + s2; 
+        System.out.println("4) short + short = " + result4);
+        // short и byte всегда продвигаются до int → результат int
+
+
+        // ----- Пример 5: float + long -----
+        float f = 1.5f;
+        long l = 2L;
+        float result5 = f + l;
+        System.out.println("5) float + long = " + result5);
+        // long расширяется до float → 1.5f + 2.0f = 3.5f
+
+
+        // ----- Пример 6: double + float -----
+        double d = 3.14;
+        float f2 = 2.0f;
+        double result6 = d + f2;
+        System.out.println("6) double + float = " + result6);
+        // float → double → 3.14 + 2.0 = 5.14
+
+
+        // ----- Пример 7: byte * byte -----
+        byte b1 = 6;
+        byte b2 = 7;
+        int result7 = b1 * b2;
+        System.out.println("7) byte * byte = " + result7);
+        // byte * byte → оба становятся int → 6 * 7 = 42
+
+
+        // ----- Пример 8: int / double -----
+        int i1 = 7;
+        double d1 = 2;
+        double result8 = i1 / d1;
+        System.out.println("8) int / double = " + result8);
+        // int → double → деление в вещественных числах
+    }
+}
