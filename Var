@@ -1,0 +1,9 @@
+public class VarDemo {
+    public static void main(String[] args) {
+        var name = "Яна";     // тип String
+        var age = 20;         // тип int
+        var height = 1.65;    // тип double
+
+        System.out.println(name + ", возраст: " + age + ", рост: " + height);
+    }
+}
