@@ -1,0 +1,26 @@
+public class BooleanDemo {
+    public static void main(String[] args) {
+
+        // 1. Устаревший конструктор
+        Boolean b1 = new Boolean(true);
+        Boolean b2 = new Boolean("true");
+        Boolean b3 = new Boolean("FALSE");
+
+        // 2. valueOf
+        Boolean b4 = Boolean.valueOf(true);
+        Boolean b5 = Boolean.valueOf("true");
+        Boolean b6 = Boolean.valueOf("FALSE");
+
+        // 3. Автоупаковка
+        Boolean b7 = true;
+        Boolean b8 = false;
+
+        // 4. parseBoolean + автоупаковка
+        Boolean b9 = Boolean.parseBoolean("true"); 
+
+        System.out.println(b1 + " " + b2 + " " + b3);
+        System.out.println(b4 + " " + b5 + " " + b6);
+        System.out.println(b7 + " " + b8);
+        System.out.println(b9);
+    }
+}
