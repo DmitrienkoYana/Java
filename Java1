@@ -1,0 +1,14 @@
+public class Main {
+    public static void main(String[] args) {
+
+        Bird bird1 = new Sparrow();
+        Bird bird2 = new Penguin();
+
+        feedBird(bird1);
+        feedBird(bird2);
+    }
+
+    public static void feedBird(Bird bird) {
+        bird.eat();   // работает одинаково для всех Bird
+    }
+}
