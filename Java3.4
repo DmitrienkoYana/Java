@@ -1,0 +1,51 @@
+public class NarrowingDemo {
+    public static void main(String[] args) {
+
+        // ----- Пример 1: int → byte -----
+        int a = 130;
+        byte b = (byte) a;
+        System.out.println("1) int → byte");
+        System.out.println("   int = " + a);
+        System.out.println("   byte = " + b); // переполнение
+
+
+        // ----- Пример 2: double → int -----
+        double d = 9.99;
+        int i1 = (int) d;
+        System.out.println("\n2) double → int");
+        System.out.println("   double = " + d);
+        System.out.println("   int = " + i1); // дробная часть отброшена
+
+
+        // ----- Пример 3: long → int -----
+        long l = 3_000_000_000L; // больше диапазона int
+        int i2 = (int) l;
+        System.out.println("\n3) long → int");
+        System.out.println("   long = " + l);
+        System.out.println("   int = " + i2); // переполнение
+
+
+        // ----- Пример 4: int → char -----
+        int code = 65;
+        char c = (char) code;
+        System.out.println("\n4) int → char");
+        System.out.println("   int = " + code);
+        System.out.println("   char = " + c); // 'A'
+
+
+        // ----- Пример 5: float → short -----
+        float f = 123.45f;
+        short s = (short) f;
+        System.out.println("\n5) float → short");
+        System.out.println("   float = " + f);
+        System.out.println("   short = " + s); // дробная часть отброшена
+
+
+        // ----- Пример 6: double → byte -----
+        double d2 = 260.75;
+        byte b2 = (byte) d2;
+        System.out.println("\n6) double → byte");
+        System.out.println("   double = " + d2);
+        System.out.println("   byte = " + b2); // переполнение + отбрасывание дроби
+    }
+}
