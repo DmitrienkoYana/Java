@@ -1,0 +1,32 @@
+class Animal {}
+class Dog extends Animal {}
+class Cat extends Animal {}
+
+public class InstanceofDemo {
+    public static void main(String[] args) {
+
+        Animal animal = new Dog();
+        Animal cat = new Cat();
+        Animal unknown = null;
+
+        System.out.println("=== Примеры использования instanceof ===");
+
+        // Обычные проверки
+        System.out.println("animal instanceof Dog: " + (animal instanceof Dog));      // true
+        System.out.println("animal instanceof Cat: " + (animal instanceof Cat));      // false
+        System.out.println("cat instanceof Animal: " + (cat instanceof Animal));      // true
+        System.out.println("cat instanceof Dog: " + (cat instanceof Dog));            // false
+
+        // Проверки с null
+        System.out.println("\n=== instanceof и null ===");
+        System.out.println("unknown instanceof Animal: " + (unknown instanceof Animal)); // false
+        System.out.println("unknown instanceof Object: " + (unknown instanceof Object)); // false
+
+        // Практическое применение для безопасного приведения
+        Object obj = "Java";
+        if (obj instanceof String) {
+            String s = (String) obj; // безопасное приведение
+            System.out.println("\nСтрока: " + s.toUpperCase());
+        }
+    }
+}
