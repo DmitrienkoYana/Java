@@ -1,0 +1,90 @@
+public class OperatorsDemo {
+    public static void main(String[] args) {
+
+        System.out.println("=== Присваивание и составные операторы ===");
+        int a = 10;          // =
+        a += 5;              // 15
+        a -= 3;              // 12
+        a *= 2;              // 24
+        a /= 4;              // 6
+        a %= 4;              // 2
+        System.out.println("a = " + a);
+
+        String s = "Hello";
+        s += " Java";        // конкатенация строк (+= и +)
+        System.out.println("s = " + s);
+
+
+        System.out.println("\n=== Тернарный оператор ?: ===");
+        int age = 18;
+        String status = (age >= 18) ? "совершеннолетний" : "несовершеннолетний";
+        System.out.println("status = " + status);
+
+
+        System.out.println("\n=== Логические операторы с boolean ===");
+        boolean b1 = true;
+        boolean b2 = false;
+        System.out.println("b1 || b2 = " + (b1 || b2));
+        System.out.println("b1 && b2 = " + (b1 && b2));
+        System.out.println("!b1      = " + (!b1));
+
+
+        System.out.println("\n=== Операторы сравнения ===");
+        int x = 7, y = 10;
+        System.out.println("x == y  = " + (x == y));
+        System.out.println("x != y  = " + (x != y));
+        System.out.println("x < y   = " + (x < y));
+        System.out.println("x >= 7  = " + (x >= 7));
+
+        String st1 = "Java";
+        String st2 = "Java";
+        System.out.println("st1.equals(st2) = " + st1.equals(st2));
+
+
+        System.out.println("\n=== Арифметические операторы ===");
+        int p = 20, q = 6;
+        System.out.println("p + q = " + (p + q));
+        System.out.println("p - q = " + (p - q));
+        System.out.println("p * q = " + (p * q));
+        System.out.println("p / q = " + (p / q));
+        System.out.println("p % q = " + (p % q));
+
+        String concat = "A" + "B";   // +
+        System.out.println("concat = " + concat);
+
+
+        System.out.println("\n=== Инкремент и декремент (префикс и постфикс) ===");
+        int k = 5;
+        int preInc  = ++k;   // k=6, preInc=6
+        int postInc = k++;   // postInc=6, k=7
+        int preDec  = --k;   // k=6, preDec=6
+        int postDec = k--;   // postDec=6, k=5
+        System.out.println("preInc  = " + preInc);
+        System.out.println("postInc = " + postInc);
+        System.out.println("preDec  = " + preDec);
+        System.out.println("postDec = " + postDec);
+        System.out.println("k final = " + k);
+
+
+        System.out.println("\n=== Побитовые операторы и сдвиги с int ===");
+        int m = 0b0101;      // 5
+        int n = 0b0011;      // 3
+        System.out.println("m & n  = " + (m &  n));  // 1
+        System.out.println("m | n  = " + (m |  n));  // 7
+        System.out.println("m ^ n  = " + (m ^  n));  // 6
+        System.out.println("~m     = " + (~m));
+
+        int sh = 8;          // 1000₂
+        System.out.println("sh >> 1  = " + (sh >> 1));   // 4
+        System.out.println("sh << 1  = " + (sh << 1));   // 16
+        System.out.println("sh >>> 1 = " + (sh >>> 1));  // 4 (логический сдвиг)
+
+
+        System.out.println("\n=== Скобки () и индексирование [] ===");
+        int r = (2 + 3) * 4;        // использование ()
+        System.out.println("(2 + 3) * 4 = " + r);
+
+        int[] arr = {10, 20, 30};
+        System.out.println("arr[1] = " + arr[1]);        // использование []
+    }
+}
