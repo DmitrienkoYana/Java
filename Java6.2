@@ -1,0 +1,7 @@
+public class UnboxingNPE {
+    public static void main(String[] args) {
+        Integer value = null;
+
+        int x = value; // попытка автораспаковки → value.intValue() → NPE
+    }
+}
