@@ -1,0 +1,14 @@
+class Parent {
+    public final void show() {
+        System.out.println("Parent.show()");
+    }
+}
+
+class Child extends Parent {
+
+    // Попытка переопределить final-метод
+    @Override
+    public void show() {             // Ошибка компиляции
+        System.out.println("Child.show()");
+    }
+}
