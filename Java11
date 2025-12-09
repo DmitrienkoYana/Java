@@ -1,0 +1,50 @@
+class MathUtil {
+
+    //- Пример ПЕРЕГРУЗКИ (overloading) -
+
+    int sum(int a) {
+        return a;
+    }
+
+    int sum(int a, int b) {
+        return a + b;
+    }
+
+    double sum(double a, double b) {
+        return a + b;
+    }
+}
+
+//- Пример ПЕРЕОПРЕДЕЛЕНИЯ (override) -
+
+class Animal {
+    void speak() {
+        System.out.println("Животное издает звук");
+    }
+}
+
+class Dog extends Animal {
+
+    @Override
+    void speak() {
+        System.out.println("Собака лает");
+    }
+}
+
+public class OverloadOverrideDemo {
+    public static void main(String[] args) {
+
+        System.out.println("= Перегрузка методов =");
+        MathUtil m = new MathUtil();
+        System.out.println(m.sum(5));           // sum(int)
+        System.out.println(m.sum(5, 3));        // sum(int, int)
+        System.out.println(m.sum(2.5, 3.7));    // sum(double, double)
+
+        System.out.println("\n= Переопределение методов =");
+        Animal a = new Animal();
+        Animal d = new Dog();   // полиморфизм
+
+        a.speak();   // метод из Animal
+        d.speak();   // метод из Dog (override)
+    }
+}
