@@ -1,0 +1,53 @@
+public class SwitchExamples {
+
+    // -------- ENUM для примера --------
+    enum Day { MON, TUE, WED }
+
+    // -------- Sealed types для pattern-matching switch (Java 21+) --------
+    sealed interface Shape permits Circle, Square {}
+    record Circle(double r) implements Shape {}
+    record Square(double a) implements Shape {}
+
+    public static void main(String[] args) {
+
+        // 1. Примитивные типы: byte, short, char, int
+        int a = 2;
+        switch (a) {
+            case 1 -> System.out.println("a = 1");
+            case 2 -> System.out.println("a = 2");
+            default -> System.out.println("a = other");
+        }
+
+        // 2. Wrapper types: Byte, Short, Character, Integer
+        Integer x = 10;
+        switch (x) {
+            case 5 -> System.out.println("x = 5");
+            case 10 -> System.out.println("x = 10");
+            default -> System.out.println("x = other");
+        }
+
+        // 3. String
+        String s = "hello";
+        switch (s) {
+            case "hello" -> System.out.println("Hello!");
+            case "bye" -> System.out.println("Bye!");
+            default -> System.out.println("Unknown string");
+        }
+
+        // 4. Enum
+        Day d = Day.MON;
+        switch (d) {
+            case MON -> System.out.println("Monday");
+            case TUE -> System.out.println("Tuesday");
+            case WED -> System.out.println("Wednesday");
+        }
+
+        // 5. Pattern matching switch (Java 21+)
+        Shape shape = new Circle(5);
+
+        switch (shape) {
+            case Circle c -> System.out.println("Circle radius = " + c.r());
+            case Square sq -> System.out.println("Square side = " + sq.a());
+        }
+    }
+}
