@@ -1,0 +1,52 @@
+class Box<T> {
+    private T value;
+
+    public Box(T value) {
+        this.value = value;
+    }
+
+    public T getValue() {
+        return value;
+    }
+}
+
+public class InstanceofGenericsDemo {
+    public static void main(String[] args) {
+
+        Box<String> strBox = new Box<>("Hello");
+        Box<Integer> intBox = new Box<>(123);
+
+        Object obj1 = strBox;
+        Object obj2 = intBox;
+
+        //1. instanceof с сырым типом (разрешено)
+        if (obj1 instanceof Box) {
+            System.out.println("obj1 является Box (raw type)");
+        }
+
+        //2. instanceof с Box<?> (неизвестный параметр)
+        if (obj2 instanceof Box<?>) {
+            System.out.println("obj2 является Box<?>");
+        }
+
+        //3. instanceof с ограниченным wildcard
+        if (obj2 instanceof Box<? extends Number>) {
+            System.out.println("obj2 является Box<? extends Number>");
+        }
+
+        //4. Проверка типа содержимого безопасным способом
+        if (obj1 instanceof Box<?>) {
+            Object value = ((Box<?>) obj1).getValue();
+            if (value instanceof String) {
+                System.out.println("Внутри obj1 хранится String: " + value);
+            }
+        }
+
+        if (obj2 instanceof Box<?>) {
+            Object value = ((Box<?>) obj2).getValue();
+            if (value instanceof Integer) {
+                System.out.println("Внутри obj2 хранится Integer: " + value);
+            }
+        }
+    }
+}
