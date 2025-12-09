@@ -1,0 +1,35 @@
+public class EnumWithMethodDemo {
+
+    enum Season {
+        WINTER(-10),
+        SPRING(10),
+        SUMMER(25),
+        AUTUMN(5);
+
+        private final int averageTemp;
+
+        Season(int averageTemp) {
+            this.averageTemp = averageTemp;
+        }
+
+        public int getAverageTemp() {
+            return averageTemp;
+        }
+
+        // Дополнительный метод
+        public boolean isWarm() {
+            return averageTemp >= 15;
+        }
+    }
+
+
+    public static void main(String[] args) {
+
+        for (Season s : Season.values()) {
+            System.out.println(
+                    s + " | средняя температура = " + s.getAverageTemp() +
+                    " | тёплый? " + s.isWarm()
+            );
+        }
+    }
+}
