@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class WildcardsDemo {
+
+    public static void main(String[] args) {
+
+        //? extends Number (Producer)
+        List<Integer> intList = Arrays.asList(1, 2, 3);
+        List<Double> doubleList = Arrays.asList(1.5, 2.5);
+
+        List<? extends Number> nums;
+
+        nums = intList;     
+        nums = doubleList;  
+
+        // Чтение (разрешено)
+        Number n1 = nums.get(0);
+        System.out.println("? extends Number read: " + n1);
+
+        // Запись (запрещено)
+        // nums.add(10);     // ошибка компиляции
+
+
+        //? super Integer (Consumer)
+        List<Object> objList = new ArrayList<>();
+        List<Number> numList = new ArrayList<>();
+
+        List<? super Integer> sink;
+
+        sink = objList;  // OK
+        sink = numList;  // OK
+
+        // Запись (разрешено)
+        sink.add(10);    // Integer допустим
+        sink.add(20);
+
+        // Чтение (ограничено)
+        Object obj = sink.get(0);  // можно читать только как Object
+        System.out.println("? super Integer read: " + obj);
+
+
+        // Демонстрация
+        System.out.println("objList = " + objList);
+        System.out.println("numList = " + numList);
+    }
+}
