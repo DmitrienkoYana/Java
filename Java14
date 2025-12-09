@@ -1,0 +1,31 @@
+public class VarargsOverloadDemo {
+
+    // Перегрузка 1 — один int параметр
+    public void printNums(int a) {
+        System.out.println("Один параметр: " + a);
+    }
+
+    // Перегрузка 2 — два int параметра
+    public void printNums(int a, int b) {
+        System.out.println("Два параметра: " + a + ", " + b);
+    }
+
+    // Перегрузка 3 — переменное число параметров
+    public void printNums(int... nums) {
+        System.out.print("Varargs: ");
+        for (int n : nums) {
+            System.out.print(n + " ");
+        }
+        System.out.println();
+    }
+
+
+    public static void main(String[] args) {
+        VarargsOverloadDemo d = new VarargsOverloadDemo();
+
+        d.printNums(10);         // вызывает метод с 1 параметром
+        d.printNums(10, 20);     // вызывает метод с 2 параметрами
+        d.printNums(1, 2, 3, 4); // вызывает метод с varargs
+        d.printNums();           // тоже вызывает метод varargs (пустой список)
+    }
+}
