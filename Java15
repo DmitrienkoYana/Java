@@ -1,0 +1,46 @@
+public class EnumInitDemo {
+
+    // Перечисление с инициализацией элементов
+    enum Day {
+        MONDAY("Рабочий день", 1),
+        TUESDAY("Рабочий день", 2),
+        WEDNESDAY("Рабочий день", 3),
+        THURSDAY("Рабочий день", 4),
+        FRIDAY("Рабочий день", 5),
+        SATURDAY("Выходной", 6),
+        SUNDAY("Выходной", 7);
+
+        private final String type;
+        private final int order;
+
+        // Конструктор для инициализации
+        Day(String type, int order) {
+            this.type = type;
+            this.order = order;
+        }
+
+        public String getType() {
+            return type;
+        }
+
+        public int getOrder() {
+            return order;
+        }
+    }
+
+
+    public static void main(String[] args) {
+
+        Day d = Day.MONDAY;
+
+        System.out.println("Day: " + d);
+        System.out.println("Type: " + d.getType());
+        System.out.println("Order: " + d.getOrder());
+
+        // Перебор всех элементов
+        System.out.println("\nВсе элементы перечисления:");
+        for (Day day : Day.values()) {
+            System.out.println(day + " → " + day.getType() + " (номер: " + day.getOrder() + ")");
+        }
+    }
+}
