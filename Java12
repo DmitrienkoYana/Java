@@ -1,0 +1,50 @@
+public class FinalInitDemo {
+
+    // 1. Инициализация в месте объявления
+    static class A1 {
+        public final int a = 10;
+
+        void print() {
+            System.out.println("A1.a = " + a);
+        }
+    }
+
+    //2. Инициализация в конструкторе
+    static class A2 {
+        public final int a;
+
+        public A2(int value) {
+            a = value;
+        }
+
+        void print() {
+            System.out.println("A2.a = " + a);
+        }
+    }
+
+    //3. Инициализация в нестатическом блоке
+    static class A3 {
+        public final int a;
+
+        {   //блок инициализации
+            a = 5;
+        }
+
+        void print() {
+            System.out.println("A3.a = " + a);
+        }
+    }
+
+    //Тест всех вариантов
+    public static void main(String[] args) {
+
+        A1 obj1 = new A1();
+        obj1.print();       // 10
+
+        A2 obj2 = new A2(20);
+        obj2.print();       // 20
+
+        A3 obj3 = new A3();
+        obj3.print();       // 5
+    }
+}
