@@ -1,0 +1,23 @@
+class Animal {
+    void speak() {
+        System.out.println("Животное издаёт звук");
+    }
+}
+
+class Dog extends Animal {
+
+    @Override
+    void speak() {  // переопределение метода суперкласса
+        System.out.println("Собака лает");
+    }
+}
+
+public class OverrideExample {
+    public static void main(String[] args) {
+        Animal a = new Animal();
+        Animal d = new Dog();  // полиморфизм
+
+        a.speak();  // вызов метода Animal.speak()
+        d.speak();  // вызов переопределённого Dog.speak()
+    }
+}
