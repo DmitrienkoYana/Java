@@ -1,0 +1,32 @@
+interface MyInterface {
+
+    void doSomething();
+
+    // Вложенный класс (по умолчанию public static)
+    class Helper {
+        public void help() {
+            System.out.println("Helper inside MyInterface is working!");
+        }
+    }
+}
+
+class MyClass implements MyInterface {
+
+    @Override
+    public void doSomething() {
+        System.out.println("MyClass does something...");
+    }
+}
+
+public class NestedClassInInterfaceDemo {
+    public static void main(String[] args) {
+
+        // Создание объекта вложенного класса из интерфейса
+        MyInterface.Helper helper = new MyInterface.Helper();
+        helper.help();  // вызов метода вложенного класса
+
+        // Создание объекта класса, реализующего интерфейс
+        MyClass obj = new MyClass();
+        obj.doSomething();
+    }
+}
