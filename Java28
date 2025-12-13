@@ -1,0 +1,18 @@
+public class TwoExceptionsDemo {
+
+    public static void main(String[] args) {
+
+        // 1. Исключение будет ПЕРЕХВАЧЕНО
+        try {
+            int a = 10 / 0; // ArithmeticException
+        } catch (ArithmeticException e) {
+            System.out.println("Перехвачено ArithmeticException: деление на ноль");
+        }
+
+        System.out.println("Программа продолжает работу...");
+
+        // 2. Исключение НЕ перехватывается → аварийная остановка
+        String s = null;
+        s.length(); // NullPointerException
+    }
+}
