@@ -1,0 +1,62 @@
+import java.util.StringJoiner;
+
+public class StringJoinerDemo {
+
+    public static void main(String[] args) {
+
+        //1. StringJoiner с разделителем
+        // Используется для объединения строк с заданным разделителем
+        StringJoiner sj1 = new StringJoiner(", ");
+        sj1.add("Apple");
+        sj1.add("Banana");
+        sj1.add("Orange");
+        System.out.println("1. Only delimiter: " + sj1);
+        // Результат: Apple, Banana, Orange
+
+
+        //2. StringJoiner с разделителем, префиксом и суффиксом
+        // Часто используется для формирования списков, JSON, SQL и т.п.
+        StringJoiner sj2 = new StringJoiner(", ", "[", "]");
+        sj2.add("one");
+        sj2.add("two");
+        sj2.add("three");
+        System.out.println("2. With prefix & suffix: " + sj2);
+        // Результат: [one, two, three]
+
+
+        //3. Пустой StringJoiner и setEmptyValue()
+        // Задаёт строку, которая будет возвращена, если элементов нет
+        StringJoiner sj3 = new StringJoiner(", ");
+        sj3.setEmptyValue("No elements");
+        System.out.println("3. Empty value: " + sj3);
+        // Результат: No elements
+
+
+        //4. Использование length()
+        // Возвращает длину результирующей строки
+        StringJoiner sj4 = new StringJoiner("-");
+        sj4.add("2025").add("01").add("15");
+        System.out.println("4. Value: " + sj4);
+        System.out.println("   Length: " + sj4.length());
+        // Результат: 2025-01-15
+
+
+        //5. Объединение двух StringJoiner (merge)
+        // Удобно для накопления данных из разных источников
+        StringJoiner sjA = new StringJoiner(", ");
+        sjA.add("A").add("B");
+
+        StringJoiner sjB = new StringJoiner(", ");
+        sjB.add("C").add("D");
+
+        sjA.merge(sjB);
+        System.out.println("5. After merge: " + sjA);
+        // Результат: A, B, C, D
+
+
+        //6. Преобразование в строку
+        // Результат всегда получается через toString()
+        String result = sj2.toString();
+        System.out.println("6. toString(): " + result);
+    }
+}
