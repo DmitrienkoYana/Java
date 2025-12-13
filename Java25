@@ -1,0 +1,63 @@
+public class StringBuilderBufferDemo {
+
+    public static void main(String[] args) {
+
+        // StringBuilder
+        // StringBuilder — НЕ потокобезопасный, но быстрый
+
+        StringBuilder sb = new StringBuilder("Hello");
+
+        // 1. append(String)
+        // Добавляет строку в конец
+        sb.append(" World");
+        System.out.println("1. append(): " + sb);
+
+        // 2. insert(int, String)
+        // Вставляет строку по указанному индексу
+        sb.insert(5, ",");
+        System.out.println("2. insert(): " + sb);
+
+        // 3. delete(int, int)
+        // Удаляет подстроку по диапазону индексов
+        sb.delete(5, 6);
+        System.out.println("3. delete(): " + sb);
+
+        // 4. reverse()
+        // Разворачивает содержимое в обратном порядке
+        sb.reverse();
+        System.out.println("4. reverse(): " + sb);
+
+        // 5. length()
+        // Возвращает текущую длину последовательности
+        System.out.println("5. length(): " + sb.length());
+
+
+        // StringBuffer 
+        // StringBuffer — потокобезопасный (synchronized), но медленнее
+
+        StringBuffer sbuf = new StringBuffer("Java");
+
+        // 6. append(String)
+        // Добавляет строку в конец
+        sbuf.append(" Programming");
+        System.out.println("6. append(): " + sbuf);
+
+        // 7. replace(int, int, String)
+        // Заменяет часть строки на другую
+        sbuf.replace(5, 16, "Language");
+        System.out.println("7. replace(): " + sbuf);
+
+        // 8. charAt(int)
+        // Возвращает символ по указанному индексу
+        System.out.println("8. charAt(0): " + sbuf.charAt(0));
+
+        // 9. setCharAt(int, char)
+        // Заменяет символ по указанному индексу
+        sbuf.setCharAt(0, 'j');
+        System.out.println("9. setCharAt(): " + sbuf);
+
+        // 10. capacity()
+        // Возвращает текущую ёмкость буфера (выделенную память)
+        System.out.println("10. capacity(): " + sbuf.capacity());
+    }
+}
