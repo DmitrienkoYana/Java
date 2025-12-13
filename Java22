@@ -1,0 +1,54 @@
+import java.util.ArrayList;
+import java.util.List;
+
+//Родительский класс
+class Parent {
+    void print() {
+        System.out.println("Parent print()");
+    }
+}
+
+//Подкласс с @Override
+class Child extends Parent {
+
+    @Override
+    void print() {   // @Override — контроль корректного переопределения
+        System.out.println("Child print()");
+    }
+}
+
+//Класс с устаревшим методом
+class OldApi {
+
+    @Deprecated
+    void oldMethod() {
+        System.out.println("Deprecated method");
+    }
+
+    void newMethod() {
+        System.out.println("New method");
+    }
+}
+
+//Основной класс
+public class AnnotationsDemo {
+
+    @SuppressWarnings({"rawtypes", "unchecked", "deprecation"})
+    public static void main(String[] args) {
+
+        //@Override
+        Parent p = new Child();
+        p.print();  // вызов переопределённого метода
+
+        //@Deprecated
+        OldApi api = new OldApi();
+        api.oldMethod();  // предупреждение подавлено через @SuppressWarnings
+
+        //@SuppressWarnings
+        List list = new ArrayList(); // raw type
+        list.add("Hello");
+        list.add(123);
+
+        System.out.println(list);
+    }
+}
