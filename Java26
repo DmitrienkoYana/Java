@@ -1,0 +1,16 @@
+public class FormatSpecifiersDemo {
+    public static void main(String[] args) {
+
+        boolean flag = true;
+        char ch = 'A';
+        int number = 123;
+        double pi = 3.14159;
+        String text = "Hello";
+
+        System.out.printf("1. Логическое значение (%%b): %b%n", flag);
+        System.out.printf("2. Символ (%%c): %c%n", ch);
+        System.out.printf("3. Десятичное целое (%%d): %d%n", number);
+        System.out.printf("4. Число с плавающей точкой (%%f): %.2f%n", pi);
+        System.out.printf("5. Строка (%%s): %s%n", text);
+    }
+}
