@@ -1,0 +1,15 @@
+import java.util.Date;
+
+public class DateFormatDemo {
+    public static void main(String[] args) {
+
+        Date now = new Date();
+
+        // Один и тот же объект Date с разными спецификаторами
+        System.out.printf("Час (00–23): %tH%n", now);   // %tH — час в 24-часовом формате
+        System.out.printf("Минуты: %tM%n", now);        // %tM — минуты
+        System.out.printf("Секунды: %tS%n", now);       // %tS — секунды
+        System.out.printf("Год (4 цифры): %tY%n", now); // %tY — год в 4-значном формате
+        System.out.printf("День недели: %tA%n", now);   // %tA — полное название дня недели
+    }
+}
