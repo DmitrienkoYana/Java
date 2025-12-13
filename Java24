@@ -1,0 +1,49 @@
+public class StringMethodsDemo {
+
+    public static void main(String[] args) {
+
+        String text = "  Hello World!  ";
+        String other = "hello world!";
+
+        // 1. length()
+        // Возвращает количество символов в строке
+        System.out.println("1. length(): " + text.length());
+
+        // 2. trim()
+        // Удаляет пробелы в начале и в конце строки
+        String trimmed = text.trim();
+        System.out.println("2. trim(): [" + trimmed + "]");
+
+        // 3. toUpperCase()
+        // Преобразует все символы строки в верхний регистр
+        System.out.println("3. toUpperCase(): " + trimmed.toUpperCase());
+
+        // 4. toLowerCase()
+        // Преобразует все символы строки в нижний регистр
+        System.out.println("4. toLowerCase(): " + trimmed.toLowerCase());
+
+        // 5. equals()
+        // Сравнивает строки с учётом регистра
+        System.out.println("5. equals(): " + trimmed.equals(other));
+
+        // 6. equalsIgnoreCase()
+        // Сравнивает строки без учёта регистра
+        System.out.println("6. equalsIgnoreCase(): " + trimmed.equalsIgnoreCase(other));
+
+        // 7. charAt(int index)
+        // Возвращает символ по указанному индексу
+        System.out.println("7. charAt(1): " + trimmed.charAt(1));
+
+        // 8. substring(int beginIndex, int endIndex)
+        // Возвращает подстроку из исходной строки
+        System.out.println("8. substring(0, 5): " + trimmed.substring(0, 5));
+
+        // 9. replace(char oldChar, char newChar)
+        // Заменяет все вхождения одного символа на другой
+        System.out.println("9. replace('o','0'): " + trimmed.replace('o', '0'));
+
+        // 10. contains(CharSequence s)
+        // Проверяет, содержится ли подстрока в строке
+        System.out.println("10. contains(\"World\"): " + trimmed.contains("World"));
+    }
+}
