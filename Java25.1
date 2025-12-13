@@ -1,0 +1,36 @@
+public class StringConversionsDemo {
+
+    public static void main(String[] args) {
+
+        // Исходный String
+        String str = "Hello";
+
+        // 1. String → StringBuilder
+        StringBuilder sb = new StringBuilder(str);
+        sb.append(" Builder");
+        System.out.println("StringBuilder: " + sb);
+
+        // 2. String → StringBuffer
+        StringBuffer sbuf = new StringBuffer(str);
+        sbuf.append(" Buffer");
+        System.out.println("StringBuffer: " + sbuf);
+
+        // 3. StringBuilder → String
+        String fromBuilder = sb.toString();
+        System.out.println("From StringBuilder to String: " + fromBuilder);
+
+        // 4. StringBuffer → String
+        String fromBuffer = sbuf.toString();
+        System.out.println("From StringBuffer to String: " + fromBuffer);
+
+        // 5. StringBuilder → StringBuffer
+        StringBuffer sbufFromBuilder =
+                new StringBuffer(sb.toString());
+        System.out.println("StringBuilder → StringBuffer: " + sbufFromBuilder);
+
+        // 6. StringBuffer → StringBuilder
+        StringBuilder sbFromBuffer =
+                new StringBuilder(sbuf.toString());
+        System.out.println("StringBuffer → StringBuilder: " + sbFromBuffer);
+    }
+}
