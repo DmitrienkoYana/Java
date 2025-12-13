@@ -1,0 +1,71 @@
+//Иерархия пользовательских исключений
+class Ex1 extends Exception {
+    public Ex1(String msg) {
+        super(msg);
+    }
+}
+
+class Ex2 extends Ex1 {
+    public Ex2(String msg) {
+        super(msg);
+    }
+}
+
+class Ex3 extends Ex2 {
+    public Ex3(String msg) {
+        super(msg);
+    }
+}
+
+public class ExceptionHierarchyDemo {
+
+    public static void main(String[] args) {
+
+        // 1. Несколько исключений обрабатываются одинаково
+
+        try {
+            int x = (int) (Math.random() * 3);
+
+            if (x == 0) {
+                throw new ArithmeticException();
+            } else if (x == 1) {
+                throw new NullPointerException();
+            } else {
+                throw new IllegalArgumentException();
+            }
+
+        } catch (ArithmeticException |
+                 NullPointerException |
+                 IllegalArgumentException e) {
+
+            // Все исключения обрабатываются ОДИНАКОВО
+            System.out.println("Перехвачено исключение: " +
+                               e.getClass().getSimpleName());
+        }
+
+
+
+        // 2. Обработка иерархии исключений Ex1 <- Ex2 <- Ex3
+
+        try {
+            int y = (int) (Math.random() * 3);
+
+            if (y == 0) {
+                throw new Ex1("Исключение Ex1");
+            } else if (y == 1) {
+                throw new Ex2("Исключение Ex2");
+            } else {
+                throw new Ex3("Исключение Ex3");
+            }
+
+        } catch (Ex3 e) {
+            System.out.println("Обработан Ex3: " + e.getMessage());
+
+        } catch (Ex2 e) {
+            System.out.println("Обработан Ex2: " + e.getMessage());
+
+        } catch (Ex1 e) {
+            System.out.println("Обработан Ex1: " + e.getMessage());
+        }
+    }
+}
