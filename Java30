@@ -1,0 +1,87 @@
+public class AccessDemo {
+
+    //Класс A
+    static class A {
+
+        private int aPrivate = 1;      // доступен только в A
+        int aDefault = 2;              // доступен в пакете
+        protected int aProtected = 3;  // доступен в пакете и наследникам
+        public int aPublic = 4;         // доступен везде
+
+        private void privateMethod() {
+            System.out.println("privateMethod()");
+        }
+
+        void defaultMethod() {
+            System.out.println("defaultMethod()");
+        }
+
+        protected void protectedMethod() {
+            System.out.println("protectedMethod()");
+        }
+
+        public void publicMethod() {
+            System.out.println("publicMethod()");
+        }
+
+        void testInsideA() {
+            // Внутри класса доступно ВСЁ
+            privateMethod();
+            defaultMethod();
+            protectedMethod();
+            publicMethod();
+        }
+    }
+
+    //Класс B (НЕ наследник)
+    static class B {
+
+        void test() {
+            A a = new A();
+
+            // a.aPrivate;        // private — недоступно
+            // a.privateMethod(); 
+
+            a.aDefault = 10;          // default — доступно
+            a.defaultMethod();         
+
+            a.aProtected = 20;        // protected — доступно (тот же пакет)
+            a.protectedMethod();      
+
+            a.aPublic = 30;           // public — доступно
+            a.publicMethod();         
+        }
+    }
+
+    //Класс C (НАСЛЕДНИК)
+    static class C extends A {
+
+        void test() {
+            // aPrivate;        // private — недоступно
+            aDefault = 100;     // default — доступно (пакет)
+            aProtected = 200;   // protected — доступно наследнику
+            aPublic = 300;      // public — доступно
+
+            // privateMethod();  
+            defaultMethod();    
+            protectedMethod();  
+            publicMethod();     
+        }
+    }
+
+    // main
+    public static void main(String[] args) {
+
+        System.out.println("=== A ===");
+        A a = new A();
+        a.testInsideA();
+
+        System.out.println("\n=== B ===");
+        B b = new B();
+        b.test();
+
+        System.out.println("\n=== C ===");
+        C c = new C();
+        c.test();
+    }
+}
