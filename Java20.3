@@ -1,0 +1,72 @@
+public class OuterAccessPractice {
+
+    //ВНЕШНИЙ КЛАСС
+    static class Outer {
+
+        //ВНУТРЕННИЙ КЛАСС
+        public class Inner {
+
+            private int privateField = 10;
+            int defaultField = 20;
+            protected int protectedField = 30;
+            public int publicField = 40;
+
+            private void privateMethod() {
+                System.out.println("Inner.privateMethod()");
+            }
+
+            void defaultMethod() {
+                System.out.println("Inner.defaultMethod()");
+            }
+
+            protected void protectedMethod() {
+                System.out.println("Inner.protectedMethod()");
+            }
+
+            public void publicMethod() {
+                System.out.println("Inner.publicMethod()");
+            }
+        }
+
+        // МЕТОД ВНЕШНЕГО КЛАССА
+        void testAccessToInner() {
+
+            Inner inner = new Inner(); // есть объект внутреннего класса
+
+            // Внешний класс имеет доступ ко ВСЕМ членам inner-класса
+            System.out.println(inner.privateField);     //private
+            System.out.println(inner.defaultField);     //default
+            System.out.println(inner.protectedField);   //protected
+            System.out.println(inner.publicField);      //public
+
+            inner.privateMethod();     
+            inner.defaultMethod();     
+            inner.protectedMethod();   
+            inner.publicMethod();      
+        }
+    }
+
+    //  ДРУГОЙ КЛАСС
+    static class External {
+
+        void test() {
+            Outer outer = new Outer();
+            Outer.Inner inner = outer.new Inner(); // Inner — public
+
+            inner.publicMethod();   //доступно
+
+            // inner.privateMethod(); // private — недоступно здесь
+            // inner.privateField;    
+        }
+    }
+
+    // main 
+    public static void main(String[] args) {
+
+        System.out.println("=== Outer accessing Inner ===");
+        new Outer().testAccessToInner();
+
+        System.out.println("\n=== External accessing Inner ===");
+        new External().test();
+    }
+}
