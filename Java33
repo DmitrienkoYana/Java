@@ -1,0 +1,31 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
+public class ScannerFileReadDemo {
+
+    public static void main(String[] args) {
+
+        try {
+            // Создаём Scanner для чтения из файла
+            Scanner scanner = new Scanner(new File("input.txt"));
+
+            // Чтение данных из файла
+            while (scanner.hasNext()) {
+
+                if (scanner.hasNextInt()) {
+                    int number = scanner.nextInt();
+                    System.out.println("Число: " + number);
+                } else {
+                    String word = scanner.next();
+                    System.out.println("Строка: " + word);
+                }
+            }
+
+            scanner.close(); // закрываем Scanner
+
+        } catch (FileNotFoundException e) {
+            System.out.println("Файл input.txt не найден");
+        }
+    }
+}
