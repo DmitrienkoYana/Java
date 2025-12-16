@@ -1,0 +1,111 @@
+public class InnerClassesPractice {
+
+    //ВНЕШНИЙ КЛАСС
+    public static class Outer {
+
+        private String outerField = "Outer field";
+
+        //1. private inner class
+        // Доступен ТОЛЬКО внутри Outer
+        private class PrivateInner {
+            void show() {
+                System.out.println("PrivateInner: " + outerField);
+            }
+        }
+
+        //2. default (package-private) inner class
+        // Доступен в пределах пакета
+        class DefaultInner {
+            void show() {
+                System.out.println("DefaultInner: " + outerField);
+            }
+        }
+
+        //3. protected inner class
+        // Доступен в пакете и наследникам Outer
+        protected class ProtectedInner {
+            void show() {
+                System.out.println("ProtectedInner: " + outerField);
+            }
+        }
+
+        //4. public inner class
+        // Доступен всем, но ТРЕБУЕТ экземпляр Outer
+        public class PublicInner {
+            void show() {
+                System.out.println("PublicInner: " + outerField);
+            }
+        }
+
+        // 5. public static nested class
+        // НЕ хранит ссылку на Outer, экземпляр не нужен
+        public static class PublicStaticNested {
+            void show() {
+                System.out.println("PublicStaticNested: no outer reference");
+            }
+        }
+
+        // Внутри Outer доступны ВСЕ внутренние классы
+        void testInsideOuter() {
+            new PrivateInner().show();
+            new DefaultInner().show();
+            new ProtectedInner().show();
+            new PublicInner().show();
+            new PublicStaticNested().show();
+        }
+    }
+
+    //КЛАСС В ТОМ ЖЕ ПАКЕТЕ
+    static class SamePackageClass {
+
+        void test() {
+            Outer outer = new Outer();
+
+            // Outer.PrivateInner p = outer.new PrivateInner(); // - private
+
+            Outer.DefaultInner d = outer.new DefaultInner();   // + package
+            d.show();
+
+            Outer.ProtectedInner pr = outer.new ProtectedInner(); // + package
+            pr.show();
+
+            Outer.PublicInner pub = outer.new PublicInner();  // + public
+            pub.show();
+
+            Outer.PublicStaticNested sn = new Outer.PublicStaticNested(); // + static
+            sn.show();
+        }
+    }
+
+    //НАСЛЕДНИК Outer
+    static class SubOuter extends Outer {
+
+        void testAsSubclass() {
+
+            // private inner недоступен даже наследнику
+            // PrivateInner p = this.new PrivateInner(); // -
+
+            DefaultInner d = this.new DefaultInner();   // + пакет
+            d.show();
+
+            ProtectedInner pr = this.new ProtectedInner(); // + protected
+            pr.show();
+
+            PublicInner pub = this.new PublicInner();   // + public
+            pub.show();
+        }
+    }
+
+    //main
+    public static void main(String[] args) {
+
+        System.out.println("=== Inside Outer ===");
+        new Outer().testInsideOuter();
+
+        System.out.println("\n=== Same package (not subclass) ===");
+        new SamePackageClass().test();
+
+        System.out.println("\n=== Subclass ===");
+        new SubOuter().testAsSubclass();
+    }
+}
