@@ -1,0 +1,32 @@
+public class AutoCloseableDemo {
+
+    // Собственный ресурс
+    static class MyResource implements AutoCloseable {
+
+        public MyResource() {
+            System.out.println("Ресурс открыт");
+        }
+
+        public void work() {
+            System.out.println("Работа с ресурсом");
+        }
+
+        @Override
+        public void close() {
+            System.out.println("Ресурс закрыт (close вызван автоматически)");
+        }
+    }
+
+    //  main 
+    public static void main(String[] args) {
+
+        System.out.println("Начало программы");
+
+        // try-with-resources
+        try (MyResource res = new MyResource()) {
+            res.work();
+        }
+
+        System.out.println("Конец программы");
+    }
+}
